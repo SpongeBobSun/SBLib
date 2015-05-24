@@ -1,6 +1,5 @@
-package sblib.bobsun.sblib.Widgets;
+package sblib.bobsun.sblib.widgets;
 
-import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;

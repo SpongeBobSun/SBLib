@@ -5,10 +5,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-import sblib.bobsun.sblib.Widgets.SBSelecor;
+import sblib.bobsun.sblib.widgets.SBSelecor;
 
 
 public class MainActivity extends ActionBarActivity {

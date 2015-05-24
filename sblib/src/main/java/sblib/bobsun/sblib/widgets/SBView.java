@@ -1,4 +1,4 @@
-package sblib.bobsun.sblib.Widgets;
+package sblib.bobsun.sblib.widgets;
 
 import android.content.Context;
 import android.util.AttributeSet;
