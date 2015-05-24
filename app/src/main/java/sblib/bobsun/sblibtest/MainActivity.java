@@ -5,6 +5,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
+import sblib.bobsun.sblib.Widgets.SBSelecor;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -12,6 +17,21 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SBSelecor selecor = (SBSelecor) findViewById(R.id.id_selector);
+        ArrayList<ArrayList> data = new ArrayList<ArrayList>();
+
+        ArrayList data1 = new ArrayList();
+        data1.add("sssss");
+        data1.add("sssss");
+        data1.add("sssss");
+        data1.add("sssss");
+
+        ArrayList data2 = new ArrayList();
+        data2.add("sssss");
+        data.add(data1);
+        data.add(data2);
+
+        selecor.setData(data);
     }
 
     @Override
