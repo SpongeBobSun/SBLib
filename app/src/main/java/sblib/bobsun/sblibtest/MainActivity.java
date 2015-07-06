@@ -1,36 +1,20 @@
 package sblib.bobsun.sblibtest;
 
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import java.util.ArrayList;
 
-import sblib.bobsun.sblib.widgets.SBSelector.SBSelector;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SBSelector selecor = (SBSelector) findViewById(R.id.id_selector);
-        ArrayList<ArrayList> data = new ArrayList<ArrayList>();
-
-        ArrayList data1 = new ArrayList();
-        data1.add("sssss");
-        data1.add("sssss");
-        data1.add("sssss");
-        data1.add("sssss");
-
-        ArrayList data2 = new ArrayList();
-        data2.add("sssss");
-        data.add(data1);
-        data.add(data2);
-
-        selecor.setData(data);
     }
 
     @Override
