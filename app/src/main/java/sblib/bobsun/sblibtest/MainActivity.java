@@ -4,11 +4,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import sblib.bobsun.sblib.views.Injection;
+import sblib.bobsun.sblib.views.annotations.InjectClickListener;
 import sblib.bobsun.sblib.views.annotations.InjectView;
 
 
@@ -17,11 +19,16 @@ public class MainActivity extends AppCompatActivity {
     @InjectView(R.id.id_textview)
     public TextView textView;
 
+    @InjectClickListener(R.id.id_button)
+    public void OnClick(View v){
+        textView.setText("Fry is an idiot!");
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        new Injection(this);
+        Injection.init(this);
         textView.setText("Gooooood news everyone!");
     }
 

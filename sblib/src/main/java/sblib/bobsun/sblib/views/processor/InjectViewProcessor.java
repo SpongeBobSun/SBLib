@@ -1,6 +1,7 @@
 package sblib.bobsun.sblib.views.processor;
 
 import android.app.Activity;
+import android.util.Log;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -10,17 +11,17 @@ import java.lang.reflect.InvocationTargetException;
  */
 public class InjectViewProcessor {
 
-    public static void process(Field view,Class activityClass, Object activity, int resId){
+    public static void process(Field view,Object activity, int resId){
         try {
             view.set(activity,
-                    activityClass.getMethod("findViewById",int.class).invoke(activity,resId)
+                    activity.getClass().getMethod("findViewById",int.class).invoke(activity,resId)
             );
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            Log.e("SBLib injection","Please declare your variable to public");
         } catch (InvocationTargetException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         } catch (NoSuchMethodException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
     }
 }
