@@ -7,9 +7,33 @@ Every time I finished a component, below index will be updated.
 ### SBView
 Provide a Base View for customize widgets. SBView can calculate View's width & height.
 You can use getWidth() & getHeight() directly in onDraw() function.
+
 ### VolumeUtil
 Raise or reduce a specific volume.
+
 ### VibrateUtil
 Make device vibrate for a specific duration.
 
-#SB means 'Some Base', 'Sun.Bob' or 'Dumbass' in Chinese.
+### View Injection. (developing....)
+This utility provide a view injection like the `butterknife` library.
+
+This utility located in package sblib.bobsun.sblib.views.
+####Usage
+#####Initialize in activity
+`new Injection(this);`
+#####Inject a view
+
+         @InjectView(R.id.id_textview)
+         public TextView textView;
+
+         @Override
+         protected void onCreate(Bundle savedInstanceState) {
+             super.onCreate(savedInstanceState);
+             setContentView(R.layout.activity_main);
+             new Injection(this);
+             textView.setText("Gooooood news everyone!");
+         }
+
+
+##About the name:
+SB means 'Some Base', 'Sun.Bob' or 'Dumbass' in Chinese.
