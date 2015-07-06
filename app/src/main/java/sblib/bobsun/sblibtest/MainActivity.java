@@ -7,7 +7,7 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 
-import sblib.bobsun.sblib.widgets.SBSelecor;
+import sblib.bobsun.sblib.widgets.SBSelector.SBSelector;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -16,7 +16,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SBSelecor selecor = (SBSelecor) findViewById(R.id.id_selector);
+        SBSelector selecor = (SBSelector) findViewById(R.id.id_selector);
         ArrayList<ArrayList> data = new ArrayList<ArrayList>();
 
         ArrayList data1 = new ArrayList();

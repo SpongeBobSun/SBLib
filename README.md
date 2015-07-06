@@ -11,8 +11,5 @@ You can use getWidth() & getHeight() directly in onDraw() function.
 Raise or reduce a specific volume.
 ### VibrateUtil
 Make device vibrate for a specific duration.
-### SBSelector
-Muti-choice Selector. (Like the one on Apple iPhone.)
-Developing....And not tested.
 
 #SB means 'Some Base', 'Sun.Bob' or 'Dumbass' in Chinese.
