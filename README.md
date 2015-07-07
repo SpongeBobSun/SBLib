@@ -22,7 +22,7 @@ This utility located in package sblib.bobsun.sblib.views.
 #####Initialize in activity
 `new Injection(this);`
 
-If you use any injection tools in this lib, you only need initialize once in activity.
+If you use any injection tools in this lib, you only need initialize once per class.
 #####Inject a view
 
          @InjectView(R.id.id_textview)
@@ -43,7 +43,7 @@ This utility located in package sblib.bobsun.sblib.views.
 ####Usage
 #####Initialize in activity
 `new Injection(this);`
-If you use any injection tools in this lib, you only need initialize once in activity.
+If you use any injection tools in this lib, you only need initialize once per class.
 #####Method declaration
 `public void OnClickListenerFunctionName(View v)`
 #####Inject a listener to view
