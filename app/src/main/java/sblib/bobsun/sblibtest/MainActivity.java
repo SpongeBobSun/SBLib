@@ -1,14 +1,24 @@
 package sblib.bobsun.sblibtest;
 
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.IOException;
+import java.net.URLConnection;
 import java.util.ArrayList;
 
+import sblib.bobsun.sblib.net.ConnectionBuilder;
+import sblib.bobsun.sblib.net.NetworkOperation;
+import sblib.bobsun.sblib.net.OnFinishHandler;
+import sblib.bobsun.sblib.net.OperationResult;
 import sblib.bobsun.sblib.views.Injection;
 import sblib.bobsun.sblib.views.annotations.InjectClickListener;
 import sblib.bobsun.sblib.views.annotations.InjectView;
@@ -22,14 +32,39 @@ public class MainActivity extends AppCompatActivity {
     @InjectClickListener(R.id.id_button)
     public void OnClick(View v){
         textView.setText("Fry is an idiot!");
+        //Unit test for network utilities.
+        new NetworkOperation(new OnFinishHandler() {
+            @Override
+            public void handleMessage(Message msg) {
+                Toast.makeText(MainActivity.this,""+msg.what,Toast.LENGTH_LONG).show();
+            }
+        }) {
+            @Override
+            public OperationResult doNetworkOperation() {
+                OperationResult ret = new OperationResult();
+                try {
+                    String result = new ConnectionBuilder().setUrl("http://it-ebooks-api.info/v1/search/android/")
+                            .getResponseFromConnection();
+                    Log.e("result",result);
+                    ret.setSuccess(true);
+                    ret.setResultCode(1);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    ret.setSuccess(false);
+                    ret.setResultCode(-1);
+                }
+                return ret;
+            }
+        }.run();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Injection.init(this);
+        Injection.init(this, findViewById(R.id.id_linearlayout));
         textView.setText("Gooooood news everyone!");
+        getSupportFragmentManager().beginTransaction().add(R.id.id_fragment_container,new TextFragment()).commit();
     }
 
     @Override

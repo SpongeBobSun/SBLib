@@ -11,10 +11,10 @@ import java.lang.reflect.InvocationTargetException;
  */
 public class InjectViewProcessor {
 
-    public static void process(Field view,Object activity, int resId){
+    public static void process(Field view,Object variable, int resId){
         try {
-            view.set(activity,
-                    activity.getClass().getMethod("findViewById",int.class).invoke(activity,resId)
+            view.set(variable,
+                    variable.getClass().getMethod("findViewById",int.class).invoke(variable,resId)
             );
         } catch (IllegalAccessException e) {
             Log.e("SBLib injection","Please declare your variable to public");
@@ -22,6 +22,19 @@ public class InjectViewProcessor {
 //            e.printStackTrace();
         } catch (NoSuchMethodException e) {
 //            e.printStackTrace();
+        }
+    }
+
+    public static void process(Field viewFiled, Object variable, Object parent, int resId){
+        try {
+            viewFiled.set(variable,
+                    parent.getClass().getMethod("findViewById",int.class).invoke(parent,resId));
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
     }
 }
