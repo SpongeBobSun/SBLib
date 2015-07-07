@@ -143,6 +143,9 @@ Wrapped network result class.
 ### SBView
 Provide a Base View for customize widgets. SBView can calculate View's width & height.
 You can use getWidth() & getHeight() directly in onDraw() function.
+### Applications
+####BaseApplication
+Save Applications context and provide static setter & getter.
 
 ### VolumeUtil
 Raise or reduce a specific volume.
